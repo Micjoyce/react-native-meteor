@@ -25,6 +25,9 @@ import ReactiveDict from './ReactiveDict';
 import User from './user/User';
 import Accounts from './user/Accounts';
 
+// stream
+import stream from '../lib/stream';
+
 
 module.exports = {
   composeWithTracker,
@@ -39,6 +42,7 @@ module.exports = {
   collection(name, options) { return new Collection(name, options) },
   FSCollection,
   createContainer,
+  stream,
   getData() {
     return Data;
   },
