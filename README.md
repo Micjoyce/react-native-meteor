@@ -52,6 +52,10 @@ https://gitter.im/react-native-meteor/Lobby
 ## Compatibility notes
 
 * Since RN 0.26.0 you have to use ws or wss protocol to connect to your meteor server. http is not working on Android.
+* It is recommended to always use the latest version of react-native-meteor compatible with your RN version.
+* For RN 0.45.x use version 1.0.6 of 'react-native-meteor'
+* For RN pre 0.45.x you can use version 1.0.3 in case or problems.
+* For RN > 0.45 you can use 1.1.x
 
 ## What is it for ?
 
@@ -92,18 +96,19 @@ class App extends Component {
   render() {
     const { settings, todosReady } = this.props;
 
-    <View>
-      <Text>{settings.title}</Text>
-        {!todosReady && <Text>Not ready</Text>}
+    return(
+      <View>
+        <Text>{settings.title}</Text>
+          {!todosReady && <Text>Not ready</Text>}
 
-        <MeteorListView
-          collection="todos"
-          selector={{done: true}}
-          options={{sort: {createdAt: -1}}}
-          renderRow={this.renderRow}
-        />
-    </View>
-
+          <MeteorListView
+            collection="todos"
+            selector={{done: true}}
+            options={{sort: {createdAt: -1}}}
+            renderRow={this.renderRow}
+          />
+      </View>
+    )
   }
 }
 
